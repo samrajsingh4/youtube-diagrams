@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="{primary}"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="{bg_color}"/>
+
+  <!-- Header -->
+  <g id="header">
+    <text x="960" y="80" text-anchor="middle" font-family="{heading_font}" font-size="56" fill="{primary}">{TITLE}</text>
+    <text x="960" y="120" text-anchor="middle" font-family="{body_font}" font-size="28" fill="{secondary}">{SUBTITLE}</text>
+  </g>
+
+  <!-- Content sections go here (section-1, section-2, etc.) -->
+
+  <!-- Credits (optional) -->
+  <g id="credits">
+    <text x="960" y="1060" text-anchor="middle" font-family="{body_font}" font-size="18" fill="{secondary}" opacity="0.6">{CREDITS}</text>
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+# AI Critique Rubric for SVG Diagrams
+# Each criterion scored 1-10. Minimum passing score: 7 per criterion.
+
+criteria:
+  spacing:
+    description: "No overlapping elements, minimum margins respected, consistent gutters"
+    min_score: 7
+    checks:
+      - "No text or box overlaps"
+      - "Minimum 40px from canvas edges"
+      - "Minimum 30px gap between sections"
+      - "Minimum 20px padding inside boxes"
+      - "Consistent spacing throughout"
+
+  legibility:
+    description: "All text readable at 1080p, proper font sizes, sufficient contrast"
+    min_score: 7
+    checks:
+      - "Headers >= 48px"
+      - "Subheaders >= 32px"
+      - "Body text >= 24px"
+      - "Text color has sufficient contrast against background (WCAG AA)"
+      - "No text overflows its container"
+
+  balance:
+    description: "Visual weight evenly distributed, no large empty areas or overcrowding"
+    min_score: 7
+    checks:
+      - "Content fills at least 60% of canvas"
+      - "No single section takes more than 40% of canvas"
+      - "Visual weight roughly balanced across quadrants"
+      - "Whitespace is intentional, not leftover"
+
+  hierarchy:
+    description: "Clear title > subtitle > body progression, visual flow is obvious"
+    min_score: 7
+    checks:
+      - "Title is the largest text element"
+      - "Clear reading order (top-to-bottom or left-to-right)"
+      - "Section headings visually distinct from body"
+      - "Arrows/connectors guide the eye"
+
+  brand_compliance:
+    description: "Colors, fonts, and styles match the brand kit"
+    min_score: 8
+    checks:
+      - "All colors are from brand-kit.md palette"
+      - "Fonts match brand-kit.md specification"
+      - "Stroke widths match brand-kit.md"
+      - "Background matches brand-kit.md"
+
+# Overall pass: all criteria meet min_score
+# Max retries before presenting to user with notes: 3

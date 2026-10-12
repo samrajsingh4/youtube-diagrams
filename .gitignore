@@ -4,3 +4,11 @@ __pycache__/
 *.pyc
 .DS_Store
 node_modules/
+.env.*
+!.env.example
+logs/
+*.jsonl
+.venv/
+venv/
+.playwright-mcp/
+.superpowers/

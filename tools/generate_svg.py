@@ -157,7 +157,7 @@ def layout_flowchart(segments: list[dict], brand: dict) -> str:
         top_count = (n + 1) // 2
         bot_count = n - top_count
         card_w = min(340, (CONTENT_WIDTH - (top_count - 1) * 50) // top_count)
-        card_h = 280
+        card_h = 320
 
         # Top row
         total_w = top_count * card_w + (top_count - 1) * 50
@@ -269,20 +269,19 @@ def _render_card(seg: dict, x: int, y: int, w: int, h: int,
                 )
                 text_y += 24
 
-    # Illustration placeholder
-    illust_y = y + h - 100
-    illust_h = 70
-    if illust_y > text_y + 10:
-        hint = escape_xml(seg.get("illustration_hint", f"illustration of {title}"))
-        parts.append(
-            f'    <rect x="{x + 20}" y="{illust_y}" width="{w - 40}" height="{illust_h}" '
-            f'rx="8" fill="none" stroke="{accent}" stroke-width="1" stroke-dasharray="6,3" '
-            f'data-illustration="{hint}" data-section="{index + 1}"/>'
-        )
-        parts.append(
-            f'    <text x="{x + w // 2}" y="{illust_y + illust_h // 2 + 5}" text-anchor="middle" '
-            f'font-family="{brand["body_font"]}" font-size="14" fill="{brand["text_muted"]}">[illustration]</text>'
-        )
+    # Illustration placeholder — always include
+    illust_h = 80
+    illust_y = max(text_y + 10, y + h - illust_h - 15)
+    hint = escape_xml(seg.get("illustration_hint", f"illustration of {title}"))
+    parts.append(
+        f'    <rect x="{x + 20}" y="{illust_y}" width="{w - 40}" height="{illust_h}" '
+        f'rx="8" fill="none" stroke="{accent}" stroke-width="1" stroke-dasharray="6,3" '
+        f'data-illustration="{hint}" data-section="{index + 1}"/>'
+    )
+    parts.append(
+        f'    <text x="{x + w // 2}" y="{illust_y + illust_h // 2 + 5}" text-anchor="middle" '
+        f'font-family="{brand["body_font"]}" font-size="14" fill="{brand["text_muted"]}">[illustration]</text>'
+    )
 
     parts.append("  </g>")
     return "\n".join(parts)
